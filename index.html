@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Word Counter</title>
+  </head>
+  <body>
+    <nav class="navbar bg-body-tertiary" style="background-color: #f5f5f5;">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Word Counter App</span>
+  </div>
+</nav>
+<center><h1 class="display-5">Welcome to Word Counter</h1></center>
+<div class="container-fluid">
+    
+<div class="mb-3 mx-3"> 
+    <label for="exampleFormControlTextarea1" class="form-label">Enter Your Text Below:-</label>
+    <form method="post" action="report.php">
+    <textarea required class="form-control" id="exampleFormControlTextarea1" name="textchecker" rows="3"></textarea>
+    <hr>
+    <div class="mb-3">
+        <label for="formFile" class="form-label">Or You can also select file from your device</label>
+        <input class="form-control" type="file" accept=".txt" id="formFile">
+      </div>
+      <hr>
+      <div class="d-grid gap-2">
+        <button style="width: 100%;" class="btn btn-success" type="submit">SUBMIT</button>
+      </div>
+    </form>
+</div>
+
+  </div>
+  <footer style=" background-color: #f5f5f5;position: fixed;bottom: 0; width: 100vw; padding: 20px; text-align: center;">
+    Made by M KASHF
+</footer>
+  <script>
+    const fileInput = document.getElementById('formFile');
+    const textDisplay = document.getElementById('exampleFormControlTextarea1');
+    
+    fileInput.addEventListener('change', function(event) {
+        const selectedFile = event.target.files[0];
+        
+        if (selectedFile) {
+            const reader = new FileReader();
+            
+            reader.onload = function(event) {
+                const fileContent = event.target.result;
+                textDisplay.value = fileContent;
+            };
+            
+            reader.readAsText(selectedFile);
+        }
+    });
+</script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
